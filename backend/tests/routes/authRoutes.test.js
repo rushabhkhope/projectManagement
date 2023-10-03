@@ -3,12 +3,11 @@ const app = require("../../server");
 const { MongoMemoryServer } = require("mongodb-memory-server");
 const mongoose = require("mongoose");
 let mongoServer;
+
 beforeAll(async () => {
   mongoServer = new MongoMemoryServer();
   await mongoServer.start();
-
   const mongoUri = await mongoServer.getUri();
-  console.log(mongoUri);
   await mongoose.disconnect();
   await mongoose.connect(mongoUri, {
     useNewUrlParser: true,
