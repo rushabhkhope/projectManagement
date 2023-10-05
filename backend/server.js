@@ -5,8 +5,7 @@ const authRoutes = require("./routes/authRoutes");
 const projectRoutes = require("./routes/projectRoutes");
 const PORT = process.env.PORT || 5000;
 const swagger = require("./swagger");
-const authMiddleware = require("./middleware/authMiddleware"); // Adjust the path as needed
-
+const authMiddleware = require("./middleware/authMiddleware");
 require("dotenv").config();
 
 app.use(express.json());
@@ -25,7 +24,10 @@ app.listen(PORT, () => {
 });
 app.use((req, res, next) => {
   // Exclude login and register routes from authentication
-  if (req.path === "/api/login" || req.path === "/api/register") {
+  if (
+    ["/api/auth/login", "/api/auth/register"].includes(req.path) ||
+    req.path.includes("api-docs")
+  ) {
     next();
   } else {
     authMiddleware(req, res, next);

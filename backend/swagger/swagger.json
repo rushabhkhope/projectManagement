@@ -1,0 +1,73 @@
+{
+  "swagger": "2.0",
+  "info": {
+    "title": "Project Management system",
+    "description": "Documentation for various APIs in the project",
+    "version": "1.0.0"
+  },
+  "paths": {
+    "/api/projects/getall": {
+      "get": {
+        "summary": "Get projects for logged-in user",
+        "description": "Returns a list of projects where the logged-in user is either an admin or a member.",
+        "tags": ["Projects"],
+        "responses": {
+          "200": {
+            "description": "Successful operation",
+            "schema": {
+              "type": "array",
+              "items": {
+                "$ref": "#/definitions/Project"
+              }
+            }
+          }
+        },
+        "security": [
+          {
+            "JWT": []
+          }
+        ]
+      }
+    }
+  },
+  "definitions": {
+    "Project": {
+      "type": "object",
+      "properties": {
+        "_id": {
+          "type": "string",
+          "description": "The unique identifier of the project"
+        },
+        "title": {
+          "type": "string",
+          "description": "The title of the project"
+        },
+        "description": {
+          "type": "string",
+          "description": "A brief description of the project"
+        },
+        "admins": {
+          "type": "array",
+          "items": {
+            "type": "string"
+          },
+          "description": "An array of user IDs who are admins of the project"
+        },
+        "members": {
+          "type": "array",
+          "items": {
+            "type": "string"
+          },
+          "description": "An array of user IDs who are members of the project"
+        }
+      }
+    }
+  },
+  "securityDefinitions": {
+    "JWT": {
+      "type": "apiKey",
+      "in": "header",
+      "name": "Authorization"
+    }
+  }
+}

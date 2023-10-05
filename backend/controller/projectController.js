@@ -27,6 +27,23 @@ const createProject = async (req, res) => {
   }
 };
 
+const getAllProjects = async (req, res) => {
+  try {
+    const userId = req.user.id;
+
+    // Find projects where the user is either an admin or a member
+    const projects = await Project.find({
+      $or: [{ admins: userId }, { members: userId }],
+    });
+
+    res.json(projects);
+  } catch (error) {
+    console.error(error);
+    res.status(500).json({ message: "Internal server error" });
+  }
+};
+
 module.exports = {
   createProject,
+  getAllProjects,
 };
