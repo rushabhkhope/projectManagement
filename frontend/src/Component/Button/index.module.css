@@ -1,0 +1,7 @@
+.btn {
+  @apply w-1/2 p-2 py-4 mb-2 rounded-md bg-[#fe6b68] text-white shadow-lg;
+}
+
+.btn:active {
+  @apply ease-in-out scale-95;
+}
