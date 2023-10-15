@@ -43,7 +43,82 @@ const getAllProjects = async (req, res) => {
   }
 };
 
+const getProjectById = async (req, res) => {
+  try {
+    const projectId = req.params.projectId;
+    const userId = req.user.id;
+
+    // Check if the user is a member of the project
+    const project = await Project.findOne({
+      _id: projectId,
+      members: userId,
+    });
+
+    if (!project) {
+      return res.status(403).json({ message: "Access denied" });
+    }
+
+    res.json(project);
+  } catch (error) {
+    res.status(500).json({ message: "Internal server error" });
+  }
+};
+
+const updateProject = async (req, res) => {
+  try {
+    const projectId = req.params.projectId;
+    const updatedDetails = req.body;
+    const userId = req.user.id;
+
+    // Check if the user is an admin of the project
+    const project = await Project.findOne({
+      _id: projectId,
+      admins: userId,
+    });
+
+    if (!project) {
+      return res.status(403).json({ message: "Access denied" });
+    }
+
+    // Update the project details
+    Object.assign(project, updatedDetails);
+    await project.save();
+
+    res.json({ message: "Project updated successfully", project });
+  } catch (error) {
+    res.status(500).json({ message: "Internal server error" });
+  }
+};
+
+const deleteProject = async (req, res) => {
+  try {
+    const projectId = req.params.projectId;
+    const userId = req.user.id;
+
+    // Check if the user is an admin of the project
+    const project = await Project.findOne({
+      _id: projectId,
+      admins: userId,
+    });
+
+    if (!project) {
+      return res.status(403).json({ message: "Access denied" });
+    }
+
+    // Delete the project
+    await Project.findByIdAndDelete(projectId);
+
+    res.json({ message: "Project deleted successfully" });
+  } catch (error) {
+    console.error(error);
+    res.status(500).json({ message: "Internal server error" });
+  }
+};
+
 module.exports = {
   createProject,
   getAllProjects,
+  getProjectById,
+  updateProject,
+  deleteProject,
 };
