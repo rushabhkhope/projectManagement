@@ -1,9 +1,28 @@
 import { useState } from "react";
 import TextInput from "../TextInput/TextInput";
+import axios from "../../utils/axiosConfig.js";
 import Button from "../Button/Button";
 const Login = () => {
   const [email, setemail] = useState("");
   const [password, setPassword] = useState("");
+  const [loading, setLoading] = useState(false);
+  const login = () => {
+    setLoading(true);
+    axios
+      .post("auth/login", {
+        email,
+        password,
+      })
+      .then((response) => {
+        console.log(response.data);
+        localStorage.setItem("token", response?.data?.token);
+        setLoading(false);
+      })
+      .catch((err) => {
+        console.log(err);
+        setLoading(false);
+      });
+  };
   return (
     <>
       <h2 className="text-6xl">Hello Again</h2>
@@ -34,7 +53,9 @@ const Login = () => {
         <a className="w-full text-sm text-right" href="#">
           Recover Password
         </a>
-        <Button>Login</Button>
+        <Button onClick={login} loading={loading}>
+          Login
+        </Button>
       </div>
     </>
   );

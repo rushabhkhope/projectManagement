@@ -1,7 +1,14 @@
 import styles from "./index.module.css";
+import Spinning from "../Loading/Spinning";
 const Button = ({ className, ...props }) => {
+  const { loading } = props;
   return (
-    <button {...props} className={[styles.btn, className].join(" ")}>
+    <button
+      {...props}
+      disabled={loading}
+      className={[styles.btn, className].join(" ")}
+    >
+      {loading && <Spinning />}
       {props.children}
     </button>
   );
