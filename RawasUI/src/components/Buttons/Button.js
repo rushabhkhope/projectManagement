@@ -1,6 +1,5 @@
 import React from "react";
 import { generateBtnClass, generateRoundedClass } from "./buttonsUtils";
-import "../../public/stylesheets/button.css";
 import Spinner from "../Spinner/Spinner";
 const Buttons = ({
   children,

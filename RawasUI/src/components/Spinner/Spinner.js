@@ -1,6 +1,5 @@
 import React from "react";
 import { generateSpinnerClass } from "./spinnerUtils.js";
-import "../../public/stylesheets/spinner.css";
 
 const Spinner = ({ color, className, ...props }) => {
   const colorClass = generateSpinnerClass(color);
