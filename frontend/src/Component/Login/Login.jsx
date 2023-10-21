@@ -1,8 +1,8 @@
 import { useState } from "react";
 import TextInput from "../TextInput/TextInput";
 import axios from "../../utils/axiosConfig.js";
-// import { Button } from "rawasui/dist/Buttons";
-import Button from "react-bootstrap/Button";
+import { Button } from "rawasui/dist/Buttons";
+// import Button from "react-bootstrap/Button";
 
 const Login = () => {
   const [email, setemail] = useState("");
@@ -60,10 +60,10 @@ const Login = () => {
           variant="contain"
           onClick={login}
           loading={loading}
+          className="w-full"
         >
           Login
         </Button>
-        <Button variant="primary">Primary</Button>{" "}
       </div>
     </>
   );
