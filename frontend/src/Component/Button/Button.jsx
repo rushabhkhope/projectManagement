@@ -8,7 +8,7 @@ const Button = ({ className, ...props }) => {
       disabled={loading}
       className={[styles.btn, className].join(" ")}
     >
-      {loading && <Spinning />}
+      {<Spinning />}
       {props.children}
     </button>
   );

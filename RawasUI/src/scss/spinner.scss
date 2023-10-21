@@ -1,0 +1,21 @@
+@import "./utils/variables";
+
+.spinner {
+    color: rgb(229 231 235 / 1);
+    width: 2rem;
+    height: 1.5rem;
+    display: inline;
+    animation: spin 1s linear infinite;
+}
+
+@keyframes spin {
+    100% {
+        transform: rotate(360deg);
+    }
+}
+
+@each $name, $color in $colors {
+    .spinner-#{""+$name} {
+        fill: $color;
+    }
+}

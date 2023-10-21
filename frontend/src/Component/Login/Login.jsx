@@ -1,7 +1,9 @@
 import { useState } from "react";
 import TextInput from "../TextInput/TextInput";
 import axios from "../../utils/axiosConfig.js";
-import Button from "../Button/Button";
+// import { Button } from "rawasui/dist/Buttons";
+import Button from "react-bootstrap/Button";
+
 const Login = () => {
   const [email, setemail] = useState("");
   const [password, setPassword] = useState("");
@@ -53,9 +55,15 @@ const Login = () => {
         <a className="w-full text-sm text-right" href="#">
           Recover Password
         </a>
-        <Button onClick={login} loading={loading}>
+        <Button
+          color="primary"
+          variant="contain"
+          onClick={login}
+          loading={loading}
+        >
           Login
         </Button>
+        <Button variant="primary">Primary</Button>{" "}
       </div>
     </>
   );

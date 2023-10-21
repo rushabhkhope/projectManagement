@@ -1,0 +1,30 @@
+.spinner {
+  color: rgb(229, 231, 235);
+  width: 2rem;
+  height: 1.5rem;
+  display: inline;
+  animation: spin 1s linear infinite;
+}
+
+@keyframes spin {
+  100% {
+    transform: rotate(360deg);
+  }
+}
+.spinner-primary {
+  fill: #FE6B68;
+}
+
+.spinner-secondary {
+  fill: #EAAD57;
+}
+
+.spinner-success {
+  fill: #4C7A5A;
+}
+
+.spinner-dark {
+  fill: #153850;
+}
+
+/*# sourceMappingURL=spinner.css.map */

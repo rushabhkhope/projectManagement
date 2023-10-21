@@ -1,0 +1,12 @@
+@import "variables";
+
+@each $name,
+$size in $radius {
+    .rounded-#{""+$name} {
+        border-radius: $size !important;
+    }
+}
+
+.round {
+    border-radius: 1.5rem !important;
+}
