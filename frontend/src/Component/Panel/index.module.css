@@ -1,0 +1,53 @@
+.pnl_1 {
+  width: auto;
+  height: fit-content;
+  padding: 0% 5%;
+}
+
+.pnl_2 {
+  width: auto;
+  height: fit-content;
+  padding: 0% 10%;
+}
+s
+.pnl_3 {
+  width: auto;
+  height: fit-content;
+  padding: 0% 15%;
+}
+.pnl {
+  width: auto;
+  height: fit-content;
+  padding: 0% 1%;
+}
+.pnl_page {
+  width: 100%;
+  align-items: center;
+  text-align: center;
+  height: 100vh;
+  padding: 0% 1%;
+}
+
+.pnl_page_1 {
+  width: 100%;
+  align-items: center;
+  text-align: center;
+  height: 100vh;
+  padding: 0% 5%;
+}
+
+.pnl_page_2 {
+  width: 100%;
+  align-items: center;
+  text-align: center;
+  height: 100vh;
+  padding: 0% 10%;
+}
+
+.pnl_page_3 {
+  width: 100%;
+  align-items: center;
+  text-align: center;
+  height: 100vh;
+  padding: 0% 15%;
+}
