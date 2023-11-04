@@ -1,13 +1,15 @@
 .pnl_1 {
   width: auto;
   height: fit-content;
-  padding: 0% 5%;
+  /* padding: 0% 5%; */
+  background-color: red;
+  @apply px-5
 }
 
 .pnl_2 {
   width: auto;
   height: fit-content;
-  padding: 0% 10%;
+  @apply px-5
 }
 s
 .pnl_3 {
@@ -18,14 +20,14 @@ s
 .pnl {
   width: auto;
   height: fit-content;
-  padding: 0% 1%;
+  @apply px-1
 }
 .pnl_page {
   width: 100%;
   align-items: center;
   text-align: center;
   height: 100vh;
-  padding: 0% 1%;
+  @apply px-1
 }
 
 .pnl_page_1 {
@@ -33,15 +35,14 @@ s
   align-items: center;
   text-align: center;
   height: 100vh;
-  padding: 0% 5%;
+  @apply px-5
 }
-
 .pnl_page_2 {
   width: 100%;
   align-items: center;
   text-align: center;
   height: 100vh;
-  padding: 0% 10%;
+  @apply px-10
 }
 
 .pnl_page_3 {
